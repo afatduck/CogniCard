@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:CogniCard.Converter"
+                    xmlns:viewmodel="clr-namespace:CogniCard.ViewModel.FlashcardListItem"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:behavior="clr-namespace:CogniCard.Behavior">
+    <converter:BooleanToStringConverter x:Key="BoolToStringConverter" />
+    <DataTemplate DataType="{x:Type viewmodel:TrueOrFalseFlashcardListItemViewModel}">
+        <StackPanel>
+            <TextBox
+            Text="{Binding Flashcard.Question}"
+            Height="40"
+            Width="500"
+            HorizontalAlignment="Left"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Margin="10">
+                <i:Interaction.Behaviors>
+                    <behavior:TextBoxPlaceholderBehavior Placeholder="Additional question info..." />
+                </i:Interaction.Behaviors>
+            </TextBox>
+            <CheckBox 
+            Margin="10"
+            Content="True? " 
+            IsChecked="{Binding Flashcard.Answer, Converter={StaticResource BoolToStringConverter}, ConverterParameter=Invert}" />
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

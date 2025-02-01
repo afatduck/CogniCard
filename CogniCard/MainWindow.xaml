@@ -1,0 +1,74 @@
+﻿<Window x:Class="CogniCard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CogniCard"
+        xmlns:view="clr-namespace:CogniCard.View" 
+        xmlns:viewmodel="clr-namespace:CogniCard.ViewModel" 
+        PreviewMouseDown="Window_PreviewMouseDown"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Title="MainWindow" Height="720" Width="1280">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" MouseDown="TitleBar_MouseDown">
+                <TextBlock Margin="10, 5" FontWeight="Bold" VerticalAlignment="Center" Foreground="{StaticResource TextBrush}">CogniCard</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                    <Button Click="Minimise_Click" Padding="2" Background="Transparent">
+                        <Image Source="Assets/min.png" Width="10" Height="10" />
+                    </Button>
+                    <Button Click="Maximize_Click" Padding="2" Background="Transparent" Margin="10,0">
+                        <Image Source="Assets/max.png" Width="10" Height="10" />
+                    </Button>
+                    <Button Click="Close_Click" Padding="2" Background="Transparent">
+                        <Image Source="Assets/x.png" Width="10" Height="10" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <ContentControl DockPanel.Dock="Left" Width="489">
+                <view:SideList DataContext="{Binding SideListViewModel}" />
+            </ContentControl>
+            <TabControl DockPanel.Dock="Right" SelectedIndex="{Binding DataService.SelectedTab}">
+                <TabControl.Template>
+                    <ControlTemplate TargetType="TabControl">
+                        <DockPanel>
+                            <UniformGrid IsItemsHost="True" Rows="1" DockPanel.Dock="Top"></UniformGrid>
+                            <ContentPresenter ContentSource="SelectedContent"></ContentPresenter>
+                        </DockPanel>
+                    </ControlTemplate>
+                </TabControl.Template>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Review</TextBlock>
+                    </TabItem.Header>
+                    <view:ReviewTab DataContext="{Binding ReviewTabViewModel}" />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Edit</TextBlock>
+                    </TabItem.Header>
+                    <view:CollectionTab DataContext="{Binding CollectionTabViewModel}" />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Public</TextBlock>
+                    </TabItem.Header>
+                    <view:PublicTab DataContext="{Binding PublicTabViewModel}" />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Generate</TextBlock>
+                    </TabItem.Header>
+                    <view:GenerateTab DataContext="{Binding GenerateTabViewModel}" />
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+        <Grid Name="FocusElement" Focusable="True" />
+    </Grid>
+</Window>

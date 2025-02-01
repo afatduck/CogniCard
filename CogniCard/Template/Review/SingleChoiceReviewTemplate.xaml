@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:CogniCard.Converter"
+                    xmlns:viewmodel="clr-namespace:CogniCard.ViewModel.Review">
+    <converter:BooleanToVisibilityConverter x:Key="BoolToVisibiltyConverter" />
+    <converter:BooleanToVisibilityConverter x:Key="NegBoolToVisibiltyConverter" True="Collapsed" False="Visible" />
+    <converter:BooleanToBrushConverter x:Key="BoolToBrushConverter"
+                                       False="{StaticResource BadBrush}"
+                                       True="{StaticResource PrimaryBrush}"/>
+    <converter:BooleanToStringConverter x:Key="BoolToStringConverter" True="Correct!" False="Incorrect." />
+    <DataTemplate DataType="{x:Type viewmodel:SingleChoiceReviewViewModel}">
+        <StackPanel>
+            <TextBlock Text="{Binding QuestionText}" TextWrapping="Wrap" />
+            <ItemsControl ItemsSource="{Binding GuessOptions}"
+                          Visibility="{Binding Revealed, Converter={StaticResource NegBoolToVisibiltyConverter}}"
+                          Margin="5" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                     GroupName="SingleChoiceRadioGroup"
+                                     Content="{Binding Name}"
+                                     VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <StackPanel Visibility="{Binding Revealed, Converter={StaticResource BoolToVisibiltyConverter}}">
+                <TextBlock Text="Your ansewer:" Margin="0,10,0,0"  FontWeight="Bold"/>
+                <TextBlock Text="{Binding Picked}" Margin="0,5" TextWrapping="Wrap" />
+                <TextBlock Text="Ansewer:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding AnswerText}" Margin="0,5" TextWrapping="Wrap" />
+                <TextBlock 
+                    Text="{Binding IsCorrect, Converter={StaticResource BoolToStringConverter}}"
+                    Foreground="{Binding IsCorrect, Converter={StaticResource BoolToBrushConverter}}"
+                    Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

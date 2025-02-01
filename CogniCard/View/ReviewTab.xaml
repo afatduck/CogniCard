@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="CogniCard.View.ReviewTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CogniCard.View"
+             xmlns:viewmodel="clr-namespace:CogniCard.ViewModel"
+             xmlns:converter="clr-namespace:CogniCard.Converter"
+             d:DataContext="{d:DesignInstance Type=viewmodel:ReviewTabViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:BooleanToVisibilityConverter x:Key="NegBoolToVisibilityConverter" True="Collapsed" False="Visible" />
+        <converter:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+        <converter:NullToVisibilityConverter x:Key="NotNullToVisibilityConverter" True="Collapsed" False="Visible" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Visibility="{Binding CollectionSelected, Converter={StaticResource NegBoolToVisibilityConverter}}">
+            <TextBlock Text="No collection selected." />
+        </Grid>
+        <Grid Visibility="{Binding CollectionSelected, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Visibility="{Binding CurrentlyReviewing, Converter={StaticResource NullToVisibilityConverter}}">
+                <TextBlock Text="No flashcards ready for review." />
+            </Grid>
+            <Grid Visibility="{Binding CurrentlyReviewing, Converter={StaticResource NotNullToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="64" />
+                </Grid.RowDefinitions>
+                <local:ReviewFlashcard 
+                    Grid.Row="0"
+                    DataContext="{Binding CurrentlyReviewing.ReviewViewModel}" />
+                <Grid
+                    Grid.Row="1"
+                    Visibility="{Binding ShowButtons, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button 
+                        Grid.Column="0"
+                        Command="{Binding BadCommand}">
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Bad&#x0a;" Foreground="{StaticResource BadBrush}" />
+                            <Run Text="Review again" Foreground="{StaticResource SecondaryTextBrush}" />
+                        </TextBlock>
+                    </Button>
+                    <Button
+                        Grid.Column="1"
+                        Command="{Binding GoodCommand}">
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Good&#x0a;" Foreground="{StaticResource PrimaryBrush}" />
+                            <Run Text="Review in 1 day" Foreground="{StaticResource SecondaryTextBrush}" />
+                        </TextBlock>
+                    </Button>
+                    <Button
+                        Grid.Column="2"
+                        Command="{Binding GreatCommand}">
+                        <TextBlock TextAlignment="Center">
+                            <Run Text="Great&#x0a;"/>
+                            <Run Text="Review in" Foreground="{StaticResource SecondaryTextBrush}" />
+                            <Run Text="{Binding CurrentlyReviewing.GreatNextDays, Mode=OneWay}" Foreground="{StaticResource SecondaryTextBrush}"/>
+                            <Run Text="days" Foreground="{StaticResource SecondaryTextBrush}" />
+                        </TextBlock>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

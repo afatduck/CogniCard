@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="CogniCard.View.PublicTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CogniCard.View"
+             xmlns:viewmodel="clr-namespace:CogniCard.ViewModel"
+             xmlns:converter="clr-namespace:CogniCard.Converter"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:behavior="clr-namespace:CogniCard.Behavior"
+             d:DataContext="{d:DesignInstance Type=viewmodel:PublicTabViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+        <converter:NullToVisibilityConverter x:Key="NotNullToVisibilityConverter" True="Collapsed" False="Visible" />
+        <converter:DateToStringConverter x:Key="DateToStringConverter" />
+    </UserControl.Resources>
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Focusable="True" />
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                     Text="{Binding DisplayName}">
+                <i:Interaction.Behaviors>
+                    <behavior:TextBoxPlaceholderBehavior Placeholder="Your display name..." />
+                </i:Interaction.Behaviors>
+            </TextBox>
+            <ComboBox SelectedItem="{Binding CollectionToUpload, UpdateSourceTrigger=PropertyChanged}"
+                      Margin="0,0,10,0"
+                      ItemsSource="{Binding Collections}"
+                      Grid.Column="2">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Command="{Binding UploadCommand}"
+                    Grid.Column="4"
+                    Content="Upload" />
+        </Grid>
+        <Button Content="Refresh"
+                Grid.Row="1"
+                Command="{Binding RefreshCommand}"
+                HorizontalAlignment="Right"
+                Width="70"
+                Background="Transparent"
+                BorderThickness="0"/>
+        <TextBox Text="{Binding TagsSearch, UpdateSourceTrigger=PropertyChanged}"
+                 Width="460"
+                 Grid.Row="1"
+                 HorizontalAlignment="Left"
+                 Margin="0,0,0,5">
+            <i:Interaction.Behaviors>
+                <behavior:TextBoxPlaceholderBehavior Placeholder="Search by tags (seperate tags with commas)..." />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" CanContentScroll="False">
+            <ItemsControl Visibility="{Binding FilteredCollections, Converter={StaticResource NotNullToVisibilityConverter}, ConverterParameter=Collection}"
+                      BorderThickness="0"
+                      ItemsSource="{Binding FilteredCollections}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="16">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" Margin="22,0,0,0">
+                                <TextBlock Text="{Binding Name}"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   FontWeight="Bold"/>
+                                <TextBlock VerticalAlignment="Center"
+                                       FontSize="10"
+                                       Foreground="{StaticResource SecondaryTextBrush}"
+                                       Margin="5,0,0,0"
+                                       Text="{Binding Flashcards.Count, StringFormat=({0} flashcards)}"/>
+                            </StackPanel>
+                            <Button Command="{Binding DataContext.SaveCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                CommandParameter="{Binding}"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Padding="0"
+                                Background="Transparent"
+                                Grid.Column="0"
+                                Width="auto">
+                                <Image Source="../Assets/download.png" Width="16" />
+                            </Button>
+                            <StackPanel Grid.Row="1" Margin="0,8">
+                                <local:TagsDisplay TagsString="{Binding Tags}" />
+                                <TextBlock Margin="0,5" Text="{Binding Description}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2">
+                                <TextBlock FontSize="10"
+                                       TextAlignment="Right"
+                                       FontStyle="Italic"
+                                       Foreground="{StaticResource SecondaryTextBrush}"
+                                       Text="{Binding UploadedBy, StringFormat=Uploaded by: {0}}"/>
+                                <TextBlock FontSize="10"
+                                       TextAlignment="Right"
+                                       FontStyle="Italic"
+                                       Foreground="{StaticResource SecondaryTextBrush}"
+                                       Text="{Binding UploadedAt, Converter={StaticResource DateToStringConverter}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <TextBlock Text="No collections found..."
+                   Grid.Row="2"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Visibility="{Binding FilteredCollections, Converter={StaticResource NullToVisibilityConverter}, ConverterParameter=Collection}">
+        </TextBlock>
+    </Grid>
+</UserControl>

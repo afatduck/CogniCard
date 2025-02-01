@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="CogniCard.View.SideList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CogniCard.View"
+             xmlns:converter="clr-namespace:CogniCard.Converter"
+             xmlns:viewmodel="clr-namespace:CogniCard.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewmodel:SideListViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="289">
+    <UserControl.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,11,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Collections" Foreground="{StaticResource TextBrush}" Margin="12,4" FontSize="16" FontWeight="Bold"/>
+            <Image Source="../Assets/cards.png" Width="18" Grid.Column="2" HorizontalAlignment="Center" ToolTip="Total flashcards"/>
+            <Image Source="../Assets/ready.png" Width="18" Grid.Column="1" HorizontalAlignment="Center" ToolTip="Ready for review"/>
+        </Grid>
+        <ListBox ItemsSource="{Binding SideItems}"
+                 SelectedItem="{Binding Selected}"
+                 ItemContainerStyle="{DynamicResource _ListBoxItemStyle}"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 ScrollViewer.CanContentScroll="False"
+                 Grid.Row="1"
+                 BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:SideListItem />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <local:AddCollection DataContext="{Binding AddCollectionViewModel}" Grid.Row="2" Margin="0,0,0,5" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVisibilityConverter}}"
+                HorizontalAlignment="Center"
+                Foreground="{StaticResource TextBrush}"
+                Grid.Row="1"
+                Text="You have no collections added." />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:CogniCard.Converter"
+                    xmlns:viewmodel="clr-namespace:CogniCard.ViewModel.Review">
+    <converter:BooleanToVisibilityConverter x:Key="BoolToVisibiltyConverter" />
+    <converter:BooleanToVisibilityConverter x:Key="NegBoolToVisibiltyConverter" True="Collapsed" False="Visible" />
+    <converter:BooleanToBrushConverter x:Key="BoolToBrushConverter"
+                                      False="{StaticResource BadBrush}"
+                                      True="{StaticResource PrimaryBrush}"/>
+    <converter:BooleanToStringConverter x:Key="BoolToStringConverter" True="Correct!" False="Incorrect." />
+    <converter:NullToVisibilityConverter x:Key="NotStringEmptyToVisibilityConverter" True="Collapsed" False="Visible" />
+    <DataTemplate DataType="{x:Type viewmodel:FillTheBlankReviewViewModel}">
+        <StackPanel>
+            <StackPanel Visibility="{Binding Revealed, Converter={StaticResource NegBoolToVisibiltyConverter}}">
+                <TextBlock Text="Fill the blank" Margin="0,10,0,0" FontWeight="Bold" />
+                <TextBlock TextWrapping="Wrap"
+                           Margin="0,5">
+                <Run Text="{Binding QuestionParts.FirstQuestionPart}" />
+                <InlineUIContainer>
+                    <TextBox Width="100"
+                             Padding="2"
+                             BorderThickness="0,0,0,1"
+                             Text="{Binding Guess}" />
+                </InlineUIContainer>
+                <Run Text="{Binding QuestionParts.LastQuestionPart}" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Visibility="{Binding Revealed, Converter={StaticResource BoolToVisibiltyConverter}}">
+                <StackPanel Margin="0,5"
+                            Visibility="{Binding Guess, Converter={StaticResource NotStringEmptyToVisibilityConverter}, ConverterParameter=String}">
+                    <TextBlock Text="Your ansewer:" Margin="0,5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Guess}" TextWrapping="Wrap" />
+                </StackPanel>
+                <TextBlock Text="Answer: " FontWeight="Bold" Margin="0,5" />
+                <TextBlock TextWrapping="Wrap">
+                    <Run Text="{Binding QuestionParts.FirstQuestionPart}"/>
+                    <Run Text="{Binding Flashcard.Answer}"/>
+                    <Run Text="{Binding QuestionParts.LastQuestionPart}"/>
+                </TextBlock>
+                <TextBlock 
+                    Text="{Binding IsCorrect, Converter={StaticResource BoolToStringConverter}}"
+                    Foreground="{Binding IsCorrect, Converter={StaticResource BoolToBrushConverter}}"
+                    Margin="0,10"/>
+            </StackPanel>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

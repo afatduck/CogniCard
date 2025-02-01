@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:CogniCard.ViewModel.FlashcardListItem"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:behavior="clr-namespace:CogniCard.Behavior">
+    <DataTemplate DataType="{x:Type viewmodel:ClassicFlashcardListItemViewModel}">
+        <StackPanel>
+            <TextBox
+            Text="{Binding Flashcard.Question}"
+            Height="40"
+            Width="500"
+            HorizontalAlignment="Left"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Margin="10">
+                <i:Interaction.Behaviors>
+                    <behavior:TextBoxPlaceholderBehavior Placeholder="Question info..." />
+                </i:Interaction.Behaviors>
+            </TextBox>
+            <TextBox
+            Text="{Binding Flashcard.Answer}"
+            Height="120"
+            Width="500"
+            HorizontalAlignment="Left"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Margin="10">
+                <i:Interaction.Behaviors>
+                    <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the answer..." />
+                </i:Interaction.Behaviors>
+            </TextBox>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:CogniCard.ViewModel.FlashcardListItem"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:behavior="clr-namespace:CogniCard.Behavior">
+    <DataTemplate DataType="{x:Type viewmodel:FillTheBlankFlashcardListItemViewModel}">
+        <WrapPanel ItemHeight="Auto" ItemWidth="Auto" Orientation="Horizontal" Margin="10">
+                <TextBox
+                    TextWrapping="Wrap"
+                    Text="{Binding FirstQuestionPart}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the first part of the question..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+                <TextBox
+                    Margin="5,0"
+                    TextWrapping="Wrap"
+                    Text="{Binding Flashcard.Answer}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the answer..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+                <TextBox
+                    TextWrapping="Wrap"
+                    Text="{Binding LastQuestionPart}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the last part of the question..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+        </WrapPanel>
+        <!--<Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            
+            <Grid HorizontalAlignment="Stretch">
+                <TextBox
+                    HorizontalAlignment="Stretch"
+Grid.Column="0"
+TextWrapping="Wrap"
+Text="{Binding FirstQuestionPart}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the first part of the question..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox
+
+TextWrapping="Wrap"
+Text="{Binding Flashcard.Answer}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the answer..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBox
+
+TextWrapping="Wrap"
+Text="{Binding LastQuestionPart}">
+                    <i:Interaction.Behaviors>
+                        <behavior:TextBoxPlaceholderBehavior Placeholder="Enter the last part of the question..." />
+                    </i:Interaction.Behaviors>
+                </TextBox>
+            </Grid>
+            
+        </Grid>-->
+    </DataTemplate>
+</ResourceDictionary>

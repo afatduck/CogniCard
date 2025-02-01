@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CogniCard.Behavior.FocusOnVisibilityBehavior" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Behavior\FocusOnVisibilityBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Behavior.FocusLostActionBehavior" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAFAgAAAAAQAAAAAAAAAIAAAACAAAAABAAAAA=</HashCode>
+      <FileName>Behavior\LostFocusActionBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Behavior.TextBoxPlaceholderBehavior" Collapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAgAFAAABAAAAAAAAAACAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Behavior\TextBoxPlaceholderBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Converter.BooleanConverter&lt;T&gt;">
+    <Position X="5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAIAAAAAAAAgAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Converter\BooleanConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CogniCard.Converter.BooleanToStringConverter">
+    <Position X="1" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\BooleanToStringConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Converter.BooleanToVisibilityConverter">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\BooleanToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Converter.FlashcardTypeToIntConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\FlashcardTypeToIntConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.Converter.LastReviewToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\LastReviewToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.Converter.NextReviewToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\NextReviewToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.ClassicFlashcard">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Flashcards\ClassicFlashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.FillTheBlankFlashcard">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Flashcards\FillTheBlankFlashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.Flashcard" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAQAAAQAABAAAAAAAAIAQAAAAAAAIEACAAJAI=</HashCode>
+      <FileName>Model\Flashcards\Flashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.MultiChoiceFlashcard">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Flashcards\MultiChoiceFlashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.SingleChoiceFlashcard">
+    <Position X="10.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Flashcards\SingleChoiceFlashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Flashcards.TrueOrFalseFlashcard">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Flashcards\TrueOrFalseFlashcard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Json.ChoiceQuestionJson" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Json\ChoiceQuestionJson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Json.FillTheBlankQuestionJson" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAACA=</HashCode>
+      <FileName>Model\Json\FillTheBlankQuestionJson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.Collection" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAACAAAAAAEAACAAABAAAAAAAA=</HashCode>
+      <FileName>Model\Collection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.DataService" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABGEAAAAAAAMAAAAAAAAAAAAAAAAAABAAAAoggAAA=</HashCode>
+      <FileName>Model\DataService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Model.FlashcardContext" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAEAAAAACAAAAAAIAAAAA=</HashCode>
+      <FileName>Model\FlashcardContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.Util.ChoiceOption" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\ChoiceOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.View.AddCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AddCollection.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.AddFlashcard" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AddFlashcard.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.CollectionTab" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CollectionTab.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.FlashcardList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\FlashcardList.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.FlashcardListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\FlashcardListItem.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.SideList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SideList.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.SideListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SideListItem.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.View.TagsDisplay" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAABAAAAAAAEAAAAIAAAAACAA=</HashCode>
+      <FileName>View\TagsDisplay.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.BaseFlashcardListItemViewModel" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\BaseFlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.ClassicFlashcardListItemViewModel" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\ClassicFlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.FillTheBlankFlashcardListItemViewModel" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\FillTheBlankFlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.MultiChoiceFlashcardListItemViewModel" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIABABEAAAAAAAAAAIABAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\MultiChoiceFlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.SingleChoiceFlashcardListItemViewModel" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIABABEAAAAAAAAAAIABAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\SingleChoiceFlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItem.TrueOrFalseFlashcardListItemViewModel" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItem\TrueOrFalseListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.AddCollectionViewModel" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgGAAAAggAAAAAAIAAAAAAACAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\AddCollectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.AddFlashcardViewModel" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAABAAAAAAAAAAEIAAAACAACAgAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ViewModel\AddFlashcardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.CollectionTabViewModel" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAgAgAgAYAAAAgAAACAIAEAABAAgggIAA=</HashCode>
+      <FileName>ViewModel\CollectionTabViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListItemViewModel" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAEAAgAAAAFAAAAIAQAAAARAAAAAAAAAAAgAAMAA=</HashCode>
+      <FileName>ViewModel\FlashcardListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.FlashcardListViewModel" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBAAAAAAEAAAAAAAAIAAAAAAAACAACAAAAAAgAAAAA=</HashCode>
+      <FileName>ViewModel\FlashcardListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.MainViewModel" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAIAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.SideListItemViewModel" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SideListItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.ViewModel.SideListViewModel" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAEAAAAAAAAIAAAAAAAgAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ViewModel\SideListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.App" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CogniCard.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Enum Name="CogniCard.Model.FlashcardType" Collapsed="true">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAABAAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Model\FlashcardType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
