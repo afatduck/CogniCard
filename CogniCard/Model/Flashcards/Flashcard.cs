@@ -43,8 +43,9 @@ namespace CogniCard.Model.Flashcards
         public required virtual Collection Collection { get; set; }
 
         [NotMapped]
-        public uint DaysSinceLastReview { 
-            get 
+        public uint DaysSinceLastReview
+        {
+            get
             {
                 if (NextReview == null || LastReview == null)
                 {
@@ -56,7 +57,17 @@ namespace CogniCard.Model.Flashcards
                     return (uint)difference.Value;
                 }
                 throw new Exception("Last review cannot be after next review.");
-            } 
+            }
+        }
+
+        [NotMapped]
+        public uint GreatNextDays
+        {
+            get
+            {
+                var d = DaysSinceLastReview;
+                return d == 0 ? 2 : d * 2;
+            }
         }
 
         [NotMapped]

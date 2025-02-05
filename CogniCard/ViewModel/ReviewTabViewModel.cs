@@ -145,8 +145,7 @@ namespace CogniCard.ViewModel
 
         private void OnGreat()
         {
-            uint dsl = CurrentlyReviewing!.DaysSinceLastReview;
-            OnPass(DateTime.Now.AddDays(dsl == 0 ? 2 : dsl * 2));
+            OnPass(DateTime.Now.AddDays(CurrentlyReviewing!.GreatNextDays));
         }
     }
 }
