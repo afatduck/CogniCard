@@ -50,23 +50,13 @@ namespace CogniCard.Model.Flashcards
                 {
                     return 0;
                 }
-                int? difference = (NextReview - LastReview)?.Days;
+                int? difference = (((DateTime)NextReview).AddMinutes(1) - LastReview)?.Days;
                 if (difference.HasValue && difference >= 0)
                 {
                     return (uint)difference.Value;
                 }
                 throw new Exception("Last review cannot be after next review.");
             } 
-        }
-
-        [NotMapped]
-        public uint GreatNextDays
-        {
-            get
-            {
-                var d = DaysSinceLastReview;
-                return d == 0 ? 2 : d * 2;
-            }
         }
 
         [NotMapped]
